@@ -4,7 +4,7 @@
     <v-app id="inspire">
       <v-navigation-drawer
         v-model="drawer"
-        app
+        app color="purple lighten-3"
       >
         <v-list dense>
           <v-list-item link>
@@ -28,11 +28,11 @@
   
       <v-app-bar
         app
-        color="indigo"
+        color="red"
         dark
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Application</v-toolbar-title>
+        <v-toolbar-title class="font-italic">이것은 무엇에</v-toolbar-title>
       </v-app-bar>
   
       <v-main>
