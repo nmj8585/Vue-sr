@@ -79,16 +79,7 @@
 </template>
 
 <script>
-
-
-export default {
-   el: '#app',
-  props: {
-    source: String,
-  },
-
-  data: () => ({
-    drawer: true,
-  }),
-};
+  export default {
+    name: 'App',
+  }
 </script>
