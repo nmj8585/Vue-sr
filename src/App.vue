@@ -4,7 +4,11 @@
     <v-app id="inspire">
       <v-navigation-drawer
         v-model="drawer"
-        app color="purple lighten-3"
+        right="right"
+        height="50%"
+        app color="#3e2723"
+        light="true"
+        value="false"
       >
         <v-list dense>
           <v-list-item link>
@@ -28,7 +32,7 @@
   
       <v-app-bar
         app
-        color="red"
+        color="rgba(115, 175, 123, 1)"
         dark
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
