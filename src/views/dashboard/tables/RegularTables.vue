@@ -18,81 +18,34 @@
         <thead>
           <tr>
             <th class="primary--text">
-              ID
+              {{ tableHead.id }}
             </th>
             <th class="primary--text">
-              Name
+              {{ tableHead.name }}
             </th>
             <th class="primary--text">
-              Country
+              {{ tableHead.country }}
             </th>
             <th class="primary--text">
-              City
+              {{ tableHead.city }}
             </th>
             <th class="text-right primary--text">
-              Salary
+              {{ tableHead.salary }}
             </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dakota Rice</td>
-            <td>Niger</td>
-            <td>Oud-Turnhout</td>
+          <tr
+            v-for="(rowData,i) in tableData"
+            :key="i"
+          >
+            <td>{{ rowData.id }}</td>
+            <td>{{ rowData.name }}</td>
+            <td>{{ rowData.country }}</td>
+            <td>{{ rowData.city }}</td>
             <td class="text-right">
-              $36,738
-            </td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td>Minverva Hooper</td>
-            <td>Curaçao</td>
-            <td>Sinaas-Waas</td>
-            <td class="text-right">
-              $23,789
-            </td>
-          </tr>
-
-          <tr>
-            <td>3</td>
-            <td>Sage Rodriguez</td>
-            <td>Netherlands</td>
-            <td>Baileux</td>
-            <td class="text-right">
-              $56,142
-            </td>
-          </tr>
-
-          <tr>
-            <td>4</td>
-            <td>Philip Chaney</td>
-            <td>Korea, South</td>
-            <td>Overland Park</td>
-            <td class="text-right">
-              $38,735
-            </td>
-          </tr>
-
-          <tr>
-            <td>5</td>
-            <td>Doris Greene</td>
-            <td>Malawi</td>
-            <td>Feldkirchen in Kärnten</td>
-            <td class="text-right">
-              $63,542
-            </td>
-          </tr>
-
-          <tr>
-            <td>6</td>
-            <td>Mason Porter</td>
-            <td>Chile</td>
-            <td>Gloucester</td>
-            <td class="text-right">
-              $78,615
+              {{ rowData.salary }}
             </td>
           </tr>
         </tbody>
@@ -108,81 +61,58 @@
       title="Table on Dark Background"
       class="px-5 py-3"
     >
-      <v-simple-table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Country</th>
-            <th>City</th>
-            <th class="text-right">
-              Salary
-            </th>
-          </tr>
-        </thead>
+      <v-data-table
+        :headers="headers"
+        :items="tableData"
+        :items-per-page="6"
+        class="elevation-1"
+      />
+    </base-material-card>
+    <base-material-card
+      color="warning"
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dakota Rice</td>
-            <td>Niger</td>
-            <td>Oud-Turnhout</td>
-            <td class="text-right">
-              $36,738
-            </td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td>Minverva Hooper</td>
-            <td>Curaçao</td>
-            <td>Sinaas-Waas</td>
-            <td class="text-right">
-              $23,789
-            </td>
-          </tr>
-
-          <tr>
-            <td>3</td>
-            <td>Sage Rodriguez</td>
-            <td>Netherlands</td>
-            <td>Baileux</td>
-            <td class="text-right">
-              $56,142
-            </td>
-          </tr>
-
-          <tr>
-            <td>4</td>
-            <td>Philip Chaney</td>
-            <td>Korea, South</td>
-            <td>Overland Park</td>
-            <td class="text-right">
-              $38,735
-            </td>
-          </tr>
-
-          <tr>
-            <td>5</td>
-            <td>Doris Greene</td>
-            <td>Malawi</td>
-            <td>Feldkirchen in Kärnten</td>
-            <td class="text-right">
-              $63,542
-            </td>
-          </tr>
-
-          <tr>
-            <td>6</td>
-            <td>Mason Porter</td>
-            <td>Chile</td>
-            <td>Gloucester</td>
-            <td class="text-right">
-              $78,615
-            </td>
-          </tr>
-        </tbody>
-      </v-simple-table>
+      icon="mdi-clipboard-plus"
+      title="Table on Dark Background"
+      class="px-5 py-3"
+    >
+      <v-data-table
+        :headers="headers"
+        :items="tableData"
+        :items-per-page="6"
+        class="elevation-1"
+      />
     </base-material-card>
   </v-container>
 </template>
+<script>
+  export default {
+    data () {
+      return {
+        tableHead: { id: 'ID', name: 'Name', country: 'Country', city: 'City', salary: 'Salary' },
+        tableData: [
+          { id: 1, name: 'Dakota Rice', country: 'Niger', city: 'Oud-Turnhout', salary: '$36,738' },
+          { id: 2, name: 'Minverva Hooper', country: 'Curaçao', city: 'Sinaas-Waas', salary: '$23,789' },
+          { id: 3, name: 'Sage Rodriguez', country: 'Netherlands', city: 'Baileux', salary: '$56,142' },
+          { id: 4, name: 'Philip Chaney', country: 'Korea', city: 'South 서울', salary: '$38,735' },
+          { id: 5, name: 'Doris Greene', country: 'Malawi', city: 'Feldkirchen in Kärnten', salary: '$63,542' },
+          { id: 6, name: 'Mason Porter', country: 'Chile', city: 'Gloucester', salary: '$78,615' },
+        ],
+        headers: [
+          {
+            text: 'ID',
+            align: 'start',
+            sortable: false,
+            value: 'id',
+          },
+          { text: 'Name', value: 'name' },
+          { text: 'Country', value: 'country' },
+          { text: 'City', value: 'city' },
+          { text: 'Salary', value: 'salary' },
+        ],
+
+      }
+    },
+
+  }
+
+</script>

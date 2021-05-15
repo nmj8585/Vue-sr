@@ -25,13 +25,13 @@
 
     <v-toolbar-title
       class="hidden-sm-and-down font-weight-light"
-      v-text="$route.name"
+      v-text="'대시보드'"
     />
 
     <v-spacer />
 
     <v-text-field
-      :label="$t('search')"
+      :label="$t('검색')"
       color="secondary"
       hide-details
       style="max-width: 165px;"
@@ -81,10 +81,11 @@
             color="red"
             overlap
             bordered
+            content="7"
           >
-            <template v-slot:badge>
-              <span>5</span>
-            </template>
+            <!--            <template v-slot:badge>-->
+            <!--              <span>5</span>-->
+            <!--            </template>-->
 
             <v-icon>mdi-bell</v-icon>
           </v-badge>
@@ -112,13 +113,17 @@
       text
       to="/pages/user"
     >
-      <v-icon>mdi-account</v-icon>
+      <v-icon
+        color="blue"
+      >
+        mdi-call-split
+      </v-icon>
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-  // Components
+// Components
   import { VHover, VListItem } from 'vuetify/lib'
 
   // Utilities
