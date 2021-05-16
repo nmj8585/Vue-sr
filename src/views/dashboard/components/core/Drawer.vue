@@ -113,6 +113,11 @@
         },
         {
           icon: 'mdi-account',
+          title: 'aaaaaaaa',
+          to: '/pages/axios',
+        },
+        {
+          icon: 'mdi-account',
           title: 'user',
           to: '/pages/user',
         },

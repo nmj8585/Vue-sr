@@ -17,6 +17,11 @@ export default new Router({
           path: '',
           component: () => import('@/views/dashboard/Dashboard'),
         },
+        {
+          name: 'Axios test',
+          path: 'pages/axios',
+          component: () => import('@/views/dashboard/Axios'),
+        },
         // Pages
         {
           name: 'User Profile',
