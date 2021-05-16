@@ -89,17 +89,44 @@
       class="px-5 py-3"
     >
       <v-data-table
-        v-slot:items
+        :hide-default-header="true"
+        :hide-default-footer="false"
         :headers="headers"
         :items="tableData"
         :items-per-page="6"
         class="elevation-1"
-      />
-      <template v-slot:items="{ items }">
-        <tr>
-          <td>{{ items.id }}</td>
-        </tr>
-      </template>
+      >
+        <template v-slot:header="headObj">
+          <tr>
+            <th
+              v-for="(head1,i) in headObj.props.headers"
+              :key="i"
+            >{{head1.text}}</th>
+<!--            <th>{{ headObj.props.headers[0].text }}</th>-->
+<!--            <th>{{ headObj.props.headers[1].text }}</th>-->
+<!--            <th>{{ headObj.props.headers[2].text }}</th>-->
+<!--            <th>{{ headObj.props.headers[3].text }}</th>-->
+<!--            <th>{{ headObj.props.headers[4].text }}</th>-->
+<!--            <th>삭제버튼</th>-->
+          </tr>
+        </template>
+        <template v-slot:item="rowObj">
+          <tr>
+            <td>{{ rowObj.item.id }}</td>
+            <td>{{ rowObj.item.name }}234</td>
+            <td>{{ rowObj.item.fat }}</td>
+            <td>{{ rowObj.item.protein }}</td>
+            <td>{{ rowObj.item.iron }}</td>
+            <td>
+              <v-btn
+                elevation="2"
+              >
+                삭제
+              </v-btn>
+            </td>
+          </tr>
+        </template>
+      </v-data-table>
     </base-material-card>
   </v-container>
 </template>
@@ -180,6 +207,9 @@
           {
             text: 'Salary',
             value: 'salary',
+          },
+          {
+            text: '삭제',
           },
         ],
 
